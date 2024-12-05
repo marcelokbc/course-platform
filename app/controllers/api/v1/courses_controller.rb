@@ -30,12 +30,13 @@ class Api::V1::CoursesController < ApplicationController
 
   def destroy
     @course.destroy
+    head :no_content
   end
 
   private
 
   def course_params
-    params.require(:course).permit(:title, :description)
+    params.require(:course).permit(:title, :description, :end_date)
   end
 
   def set_course
