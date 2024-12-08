@@ -3,8 +3,18 @@ class Api::V1::CoursesController < ApplicationController
   before_action :set_course, only: [:show, :update, :destroy]
 
   def index
-    @courses = Course.where('end_date > ?', Time.now).includes(:videos)
-    render json: @courses, include: :videos
+    @courses = Course.includes(:videos).where('end_date >= ?', Date.today)
+    courses_with_sizes = @courses.map do |course|
+      {
+        id: course.id,
+        title: course.title,
+        description: course.description,
+        end_date: course.end_date,
+        total_video_size: course.videos.sum(:size),
+        videos: course.videos
+      }
+    end
+    render json: courses_with_sizes
   end
 
   def show
