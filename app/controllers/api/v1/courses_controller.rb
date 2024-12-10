@@ -46,7 +46,10 @@ class Api::V1::CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:title, :description, :end_date)
+    params.require(:course).permit(
+    :title, :description, :end_date, 
+    videos_attributes: [:id, :title, :url, :size, :_destroy]
+  )
   end
 
   def set_course

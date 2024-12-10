@@ -11,9 +11,9 @@
 
 # Adding courses
 courses = Course.create([
-  { title: "Ruby on Rails", description: "Learn how to build web applications using Ruby on Rails.", end_date: "2022-12-31" },
-  { title: "React", description: "Learn how to build interactive user interfaces using React.", end_date: "2022-12-31" },
-  { title: "Vue.js", description: "Learn how to build interactive user interfaces using Vue.js.", end_date: "2022-12-31" }
+  { title: "Ruby on Rails", description: "Learn how to build web applications using Ruby on Rails.", end_date: "2024-12-31" },
+  { title: "React", description: "Learn how to build interactive user interfaces using React.", end_date: "2024-12-31" },
+  { title: "Vue.js", description: "Learn how to build interactive user interfaces using Vue.js.", end_date: "2024-12-31" }
 ])
 
 # Adding a single video for each course
